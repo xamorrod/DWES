@@ -23,6 +23,8 @@ def obtenerEstudiantes():
 
 def eliminarEstudiante():
     encontrado = False
+    #Lista que vamos a utilizar para introducir la nueva lista con los estudiantes eliminados
+    listaEstudianteConservada = []
     nombre = input("Introduce el nombre del estudiante que quieres eliminar")
     for estudiante in Estudiante.listaEstudiante:
         if estudiante.nombre == nombre:
@@ -34,6 +36,14 @@ def eliminarEstudiante():
             )
             confirmBorrado = input()
             if confirmBorrado == "Y":
+                with open ("registro_estudiantes.txt" , "r") as fichero:
+                    #Iteramos en las líneas para encontrar al estudiante que se llama como el nombre que se desea borrar
+                    for linea in fichero.readlines():
+                        if(linea[linea.find(" "),(linea.find(",")-1)] != nombre):
+                            listaEstudianteConservada.append(linea)
+                with open ("registro_estudiantes.txt", "w") as ficheroActualizado:
+                    for linea in ficheroActualizado:
+                        ficheroActualizado.write(linea)
                 Estudiante.listaEstudiante.remove(estudiante)
                 print("El estudiante se ha borrado satisfactoriamente")
             else:
