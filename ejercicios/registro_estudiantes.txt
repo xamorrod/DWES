@@ -1,0 +1,3 @@
+Nombre: Amador, Apellido: Flores, Edad: 12
+Nombre: a, Apellido: a, Edad: 21
+Nombre: aaa, Apellido: aaa, Edad: 12

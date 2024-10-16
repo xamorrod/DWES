@@ -3,7 +3,7 @@ from estudianteUtil import crearEstudiante, eliminarEstudiante , obtenerEstudian
 from menuEstudiante import menu
 
 
-#TODO necesito algún método para cargar los datos y crear los objetos determinados una vez se inicie el programa
 
+#TODO Arreglar metodo borrado de estudiates
 Estudiante.reload()
 menu()
