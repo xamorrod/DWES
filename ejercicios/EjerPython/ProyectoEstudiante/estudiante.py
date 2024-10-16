@@ -12,10 +12,16 @@ class Estudiante:
         self.edad = edad
         #Llamamos al método dentro del constructor para que se guarde automáticamente
         self.guardar_estudiante()
+        #Llamamos al método que escribe los datos creados en un fichero
+        self.escribir_estudiante()
+        
         
     def guardar_estudiante(self):
         Estudiante.listaEstudiante.append(self)
     
+    def escribir_estudiante(self):
+        with open ("registro_estudiantes.txt" , "a") as fichero:
+            fichero.write(f"Nombre: {self.nombre}, Apellido: {self.apellido}, Edad: {self.edad}")
 
     #Definimos el método __str__ para hacer la representación de cada estudiante que se llamará cuando queramos ver la lista de estudiantes
     def __str__(self):
@@ -26,6 +32,26 @@ class Estudiante:
     def verEstudiantes(cls):
         for estudiante in cls.listaEstudiante:
             print(estudiante)
+            
+    @classmethod
+    def reload(cls):
+
+        # Abrir el archivo y leer los datos de los estudiantes
+        try:
+            with open("registro_estudiantes.txt", "r") as fichero:
+                for linea in fichero.readlines():
+                    # Dividir la línea por las comas para obtener las partes
+                    partes = linea.strip().split(", ")
+                    # Extraer los valores de nombre, apellido y edad
+                    nombre = partes[0].split(": ")[1]
+                    apellido = partes[1].split(": ")[1]
+                    edad = partes[2].split(": ")[1]
+                    # Crear una instancia de Estudiante con los datos leídos
+                    estudiante = cls(nombre, apellido, edad)
+                   
+        except FileNotFoundError:
+            print("El archivo 'registro_estudiantes.txt' no existe. No se han cargado estudiantes.")
+
         
          
         
