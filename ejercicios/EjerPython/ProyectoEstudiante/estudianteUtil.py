@@ -82,6 +82,7 @@ def eliminarEstudiante():
         with open("registro_estudiantes.txt", "w") as ficheroActualizado:
             for estudiante in listaEstudianteConservada:
                 ficheroActualizado.write(f"Nombre: {estudiante.nombre}, Apellido: {estudiante.apellido}, Edad: {estudiante.edad}\n")
+        
     else:
         print("No se ha encontrado ningún estudiante con los datos proporcionados.")
 
