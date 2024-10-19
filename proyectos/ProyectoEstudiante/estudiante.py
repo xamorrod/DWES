@@ -1,7 +1,7 @@
 class Estudiante:
 
-    # Definimos el atributo global de la clase que será la lista con todas las personas
-
+    # Definimos el atributo global de la clase que será la lista con todas las persona
+    # Prueba git
     listaEstudiante  = []    
 
     def __init__(self, nombre, apellido, edad):
