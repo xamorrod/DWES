@@ -18,7 +18,6 @@ def menu():
                     Estudiante.verEstudiantes()
                 case 3:
                     obtenerEstudiantes()
-
                 case 4:
                     eliminarEstudiante()
                 case 5:

@@ -9,7 +9,7 @@ class Estudiante:
         # Definimos los atributos de la clase
         self.nombre = nombre
         self.apellido = apellido
-        self.edad = edad
+        self.edad = int(edad)
         # Llamamos al método dentro del constructor para que se guarde automáticamente
         self.guardar_estudiante()
         # Llamamos al método que escribe los datos creados en un fichero
@@ -21,7 +21,7 @@ class Estudiante:
         estudiante = cls.__new__(cls)
         estudiante.nombre = nombre
         estudiante.apellido = apellido
-        estudiante.edad = edad
+        estudiante.edad = int(edad)
         return estudiante
 
     def guardar_estudiante(self):
