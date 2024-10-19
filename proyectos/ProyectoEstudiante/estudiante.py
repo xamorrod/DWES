@@ -53,7 +53,7 @@ class Estudiante:
                     # Extraer los valores de nombre, apellido y edad
                     nombre = partes[0].split(": ")[1]
                     apellido = partes[1].split(": ")[1]
-                    edad = partes[2].split(": ")[1]
+                    edad = int(partes[2].split(": ")[1])
                     # Crear una instancia de Estudiante con los datos leídos
                     estudiante = Estudiante.constructor_sin_metodo(nombre, apellido, edad)
                     cls.listaEstudiante.append(estudiante)
