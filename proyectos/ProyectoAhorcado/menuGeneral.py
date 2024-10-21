@@ -34,5 +34,5 @@ def modoDosJugadores():
     # Añadimos cada nueva palabra a la lista de palabras
     with open("palabras.txt", "a", encoding="utf-8") as archivo:
         archivo.write(palabraElegida + "\n")
-        
+
     return palabraElegida

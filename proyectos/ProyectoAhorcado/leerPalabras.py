@@ -19,6 +19,4 @@ def leerPalabrasUnJugador():
         return None  
 
 
-palabra_seleccionada = leerPalabrasUnJugador()
-if palabra_seleccionada: 
-    print("Palabra seleccionada:", palabra_seleccionada)
+
