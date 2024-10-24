@@ -13,6 +13,7 @@ _.pyo
 # Archivos de configuración de Jupyter Notebook
 
 .ipynb_checkpoints/
+api_keys.py
 
 # Archivos generados
 
