@@ -1,4 +1,4 @@
-# 🪙 BTC Transactions Tracker
+### 🪙 BTC Transactions Tracker
 
 Este proyecto es una aplicación en Python diseñada para rastrear y analizar transacciones de Bitcoin (BTC) utilizando datos de una API JSON pública. Permite obtener información sobre las últimas transacciones, extraer detalles de las carteras involucradas y rastrear una dirección de Bitcoin específica. Además, el proyecto está preparado para ser dockerizado y ejecutado en un contenedor.
 
