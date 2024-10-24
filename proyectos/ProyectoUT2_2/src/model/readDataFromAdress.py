@@ -1,20 +1,20 @@
 import requests
 from readUnConfirmedTransaction import getUnConfirmedTransaction
 
-address = "bc1qu59a5y5qm9cv68r9gxa3g0vduckpp9zxry4a2a"
-
-url = "https://blockchain.info/rawaddr/" + address
+url = "https://blockchain.info/multiaddr?active=" 
 
 #Importamos las últimas 10 transacciones pendientes para extraer datos de sus direcciones y analizarlas
 
 lastDirections = getUnConfirmedTransaction()
+directionsUrl = "|".join(lastDirections)
 
-def getWalletData(address):
-    
+
+def getWalletData(addresses):
+
     try:
         
         # Hacer la solicitud GET a la API
-        response = requests.get(url)
+        response = requests.get(url + addresses)
         response.raise_for_status()  
 
         # Convertir la respuesta en formato JSON
@@ -27,7 +27,7 @@ def getWalletData(address):
         tx_count = wallet_data.get('n_tx', 0)  # Número de transacciones
 
         # Mostrar los datos
-        print(f"Dirección: {address}")
+        print(f"Dirección: {addresses}")
         print(f"Saldo: {balance / 1e8} BTC")  # Convertir de satoshis a BTC
         print(f"Número de transacciones: {tx_count}")
         
@@ -36,9 +36,4 @@ def getWalletData(address):
         print(f"Error al obtener las transacciones: {e}")
     
 
-getWalletData(address)
-
-for address in lastDirections :
-    url = "https://blockchain.info/rawaddr/"
-    
-    
+getWalletData(directionsUrl)  
