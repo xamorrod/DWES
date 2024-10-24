@@ -25,16 +25,21 @@ La aplicación descarga datos JSON desde una API para obtener información de la
    ```bash
 # 🐳 Dockerización (Opcional)
 
-# ✅ Requisitos del Proyecto
+### ✅ Requisitos del Proyecto
 
+1. **Descarga de Datos**: La aplicación debe ser capaz de descargar datos JSON desde al menos una fuente en línea, como una API web o un archivo JSON remoto.
 
-# Este proyecto cumple con los siguientes requisitos:
+2. **Procesamiento de Datos**: Los datos JSON descargados deben ser procesados y almacenados en estructuras de datos adecuadas, como listas, diccionarios u objetos personalizados según la naturaleza de los datos.
 
-1. Descarga de Datos: Obtiene datos de una API en línea.
-2. Procesamiento de Datos: Los datos son almacenados y manipulados adecuadamente.
-3. Manipulación de Datos: Se pueden realizar búsquedas y consultas sobre los datos.
-4. Documentación: Incluye este archivo README.md detallado.
-5. Control de Versiones: El proyecto utiliza Git para el control de versiones.
-6. Entorno Virtual: Se recomienda usar un entorno virtual para gestionar las dependencias.
-7. Opcional: Dockerización 🐳: El proyecto incluye la opción de ser ejecutado en Docker.
+3. **Manipulación de Datos**: Los usuarios deben poder realizar alguna forma de manipulación de datos, como búsqueda, filtrado, ordenamiento o cálculos sobre los datos descargados.
+
+4. **Interfaz de Usuario (Opcional)**: Como apartado opcional, se propone crear una interfaz de usuario simple para interactuar con la aplicación. Esto podría ser una interfaz de línea de comandos o una GUI básica.
+
+5. **Documentación**: Debéis proporcionar documentación clara y concisa que explique cómo funciona su aplicación, cómo se ejecuta y cómo se pueden utilizar sus características. Si la aplicación tiene dependencias para funcionar, debes explicar claramente cómo se instalan.
+
+6. **Control de Versiones y entorno virtual**: Se debe utilizar un sistema de control de versiones, como Git, para realizar un seguimiento de las actualizaciones del código y colaborar en el desarrollo si se trabaja en grupo. Además, deberá estar ubicado en un entorno virtual.
+
+7. **Entorno en container (Opcional)**: En este apartado opcional te propongo la creación de un contenedor con Docker en el que esté todo configurado y listo para funcionar.
+
+8. **Presentación**: Al final del proyecto, el alumnado debe presentar su aplicación y su funcionamiento ante el grupo y el profesor, destacando las características implementadas y los problemas superados. Además, deberá crear un vídeo de menos de 2 minutos con los highlights de la app.
 
