@@ -1,5 +1,6 @@
 import requests
-import json  
+import json 
+import os 
 
 
 url = "https://blockchain.info/unconfirmed-transactions?format=json"
@@ -20,6 +21,12 @@ def getUnConfirmedTransaction():
         # Obtener las direcciones de las 10 últimas transacciones
         latest_transactions = transactions[:10]
         all_output_addresses = []
+      
+      
+        
+        #Dumpeamos los datos en JSON 
+        with open("latest_transactions.json", 'w') as json_file:
+            json.dump(latest_transactions, json_file, indent=4)
         
         for idx, tx in enumerate(latest_transactions):
             print(f"\nTransacción {idx + 1} - Hash: {tx['hash']}")
@@ -33,8 +40,9 @@ def getUnConfirmedTransaction():
             
             print(f"Direcciones de salida: {', '.join(output_addresses) if output_addresses else 'No disponibles'}")
             all_output_addresses.extend(output_addresses) 
-
             
-        return output_addresses
+        return all_output_addresses
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")
+        
+getUnConfirmedTransaction()
