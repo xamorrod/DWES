@@ -1,9 +1,7 @@
+from apiData.apiUrl import UNCONFIRMEDTRANS
 import requests
 import json 
-from api.apiUrl import UNCONFIRMEDTRANS
 
-
-url = UNCONFIRMEDTRANS
 
 # Vuelca los datos de las transacciones pendientes de confirmación de la Blockchain
 # Devuelve una lista con las direcciones de los emisores de dichas transacciones
@@ -11,6 +9,7 @@ url = UNCONFIRMEDTRANS
 def getUnConfirmedTransaction():
     try:
 
+        url = UNCONFIRMEDTRANS
         # Hacer la solicitud GET a la API
         response = requests.get(url)
         response.raise_for_status()  
@@ -44,3 +43,6 @@ def getUnConfirmedTransaction():
         return all_output_addresses
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")
+
+        
+getUnConfirmedTransaction()
