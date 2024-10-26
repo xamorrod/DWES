@@ -1,8 +1,12 @@
 import requests
 import json 
+from api.apiUrl import UNCONFIRMEDTRANS
 
 
-url = "https://blockchain.info/unconfirmed-transactions?format=json"
+url = UNCONFIRMEDTRANS
+
+# Vuelca los datos de las transacciones pendientes de confirmación de la Blockchain
+# Devuelve una lista con las direcciones de los emisores de dichas transacciones
 
 def getUnConfirmedTransaction():
     try:
@@ -20,7 +24,7 @@ def getUnConfirmedTransaction():
         latest_transactions = transactions[:5]
 
         # Dumpeamos los datos en JSON
-        with open("data/latest_transactions.json", "w") as json_file:
+        with open("latest_transactions.json", "w") as json_file:
             json.dump(latest_transactions, json_file, indent=4)
 
         all_output_addresses = [] 
@@ -40,4 +44,3 @@ def getUnConfirmedTransaction():
         return all_output_addresses
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")
-
