@@ -1,19 +1,19 @@
 import requests
 import json
 from readDataFromUnConfirmedTransaction import getUnConfirmedTransaction
-from api.apiUrl import INFOTRANS
 
-url = INFOTRANS
-lastDirections = getUnConfirmedTransaction()
-directionsUrl = "|".join(lastDirections)
 
-# Obtenemos los datos de una transacción dado su Hash 
+# Obtenemos los datos de una transacción dado su Hash
 def getDataFromTransacction(hash):
+
+    url = "https://blockchain.info/rawtx/"
+    lastDirections = getUnConfirmedTransaction()
+    directionsUrl = "|".join(lastDirections)
 
     try:
 
         # Hacer la solicitud GET a la API
-        response = requests.get(url + addresses)
+        response = requests.get(url + directionsUrl)
         response.raise_for_status()
 
         # Convertir la respuesta en formato JSON
@@ -32,6 +32,3 @@ def getDataFromTransacction(hash):
 
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")
-
-
-

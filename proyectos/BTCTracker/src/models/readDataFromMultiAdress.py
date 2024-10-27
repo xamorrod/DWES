@@ -1,6 +1,5 @@
 import requests
 from readDataFromUnConfirmedTransaction import getUnConfirmedTransaction
-from api.apiUrl import *
 
 
 # Obtenemos las direcciones de las wallets de las transacciones que estan pendientes de confirmación en la Blockchain
@@ -8,8 +7,8 @@ from api.apiUrl import *
 def getWalletData():
 
     try:
-        
-        url = MULTIADRR
+
+        url = "https://blockchain.info/multiaddr?active="
         # Importamos las últimas 10 transacciones pendientes para extraer datos de sus direcciones y analizarlas
         lastDirections = getUnConfirmedTransaction()
         directionsUrl = "|".join(lastDirections)
@@ -36,3 +35,4 @@ def getWalletData():
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")
 
+getWalletData()
