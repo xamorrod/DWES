@@ -24,7 +24,7 @@ def getDataFromTransacction(hash):
 
         balance = wallet_data.get("final_balance", 0)  # Balance en satoshis
         tx_count = wallet_data.get("n_tx", 0)  # Número de transacciones
-
+        
         # Mostrar los datos
         print(f"Dirección:")
         print(f"Saldo: {balance / 1e8} BTC")  # Convertir de satoshis a BTC
