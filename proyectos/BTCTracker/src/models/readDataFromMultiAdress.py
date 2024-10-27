@@ -35,4 +35,3 @@ def getWalletData():
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")
 
-getWalletData()
