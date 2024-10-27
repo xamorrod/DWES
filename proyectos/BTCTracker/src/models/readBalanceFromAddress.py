@@ -1,15 +1,12 @@
 import requests
 import json
-import sys
-import controllers as contrl
+from controllers import balanceToJSON
 from pathlib import Path
-from readDataFromUnConfirmedTransaction import getUnConfirmedTransaction
 
 
 # Obtenemos los datos de una transacción dado su Hash
 def getBalanceFromAddress(address):
 
-    sys.path.append(str(Path(__file__).resolve().parent.parent))
     url = "https://blockchain.info/balance?active="
 
     try:
@@ -27,15 +24,17 @@ def getBalanceFromAddress(address):
         # Obtener las transacciones
 
         balance = address_data.get("final_balance", 0)  # Balance en satoshis
-        total_receive = address_data.get("total_received", 0)  # Total recibido
+        total_receive = address_data.get("total_received", 0)
+        n_tx = address_data.get("n_tx", 0)  # Total recibido
 
         # Crear un diccionario con los datos obtenidos
         data = {
             "address": address,
-            "balance": balance,
-            "total_received": total_receive,
+            "balance": balance / 1e8,
+            "total_received": total_receive / 1e8,
+            "number_of_transactions": n_tx
         }
-        balanceToJSON.saveBalanceToJSON()
+        balanceToJSON.saveBalanceToJSON(data)
         return data
 
     except requests.exceptions.RequestException as e:

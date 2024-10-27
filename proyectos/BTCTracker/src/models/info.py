@@ -1,1 +1,0 @@
-https://www.blockchain.com/es/explorer/api/blockchain_api

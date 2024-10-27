@@ -1,5 +1,6 @@
 import requests
-from readDataFromUnConfirmedTransaction import getUnConfirmedTransaction
+from controllers import remainingTransationsToJSON
+from models.getUnconfirmedTransactions import getUnConfirmedTransaction
 
 
 # Obtenemos las direcciones de las wallets de las transacciones que estan pendientes de confirmación en la Blockchain
@@ -26,11 +27,17 @@ def getWalletData():
         address = wallet_data.get('addr' , 0) # Dirección
         balance = wallet_data.get('final_balance', 0)  # Balance en satoshis
         tx_count = wallet_data.get('n_tx', 0)  # Número de transacciones
+       
+        data = {
+                "address": address,
+                "balance": balance / 1e8,  # Convertir a BTC
+                "number_of_transactions": tx_count
+            }
 
-        # Mostrar los datos
-        print(f"Dirección: {address}")
-        print(f"Saldo: {balance / 1e8} BTC")  # Convertir de satoshis a BTC
-        print(f"Número de transacciones: {tx_count}")
+        
+        
+        remainingTransationsToJSON.saveWalletDataToJSON(data)
+       
 
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")

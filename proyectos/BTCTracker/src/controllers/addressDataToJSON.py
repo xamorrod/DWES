@@ -1,13 +1,13 @@
 from pathlib import Path
 import json
 
-# Esta función se encarga de registrar en un JSON los datos de balance de una cuenta cuando se llama a
+# Esta función se encarga de registrar en un JSON los datos de una cuenta cuando se llama a
 # la API para obtener estos datos
 
-def saveBalanceToJSON(data):
+def saveAllDataToJSON(data):
 
     # Ruta en la que se va a almacenar
-    filename = "./src/data/addresses_balance.json"
+    filename = "./src/data/addresses_data.json"
     file_path = Path(filename)
 
     try:
