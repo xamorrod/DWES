@@ -17,7 +17,7 @@ def saveWalletDataToJSON(data):
                 except json.JSONDecodeError:
                     existing_data = []
         else:
-            existing_data = []
+            existing_data = []  
 
         # Crear un nuevo registro con los datos de la wallet
         existing_data.append(data)
@@ -28,7 +28,7 @@ def saveWalletDataToJSON(data):
 
         
 
-        print(f"Datos de wallet guardados en {file_path}")
+        
 
     except IOError as e:
         print(f"Error al guardar el archivo {filename}: {e}")

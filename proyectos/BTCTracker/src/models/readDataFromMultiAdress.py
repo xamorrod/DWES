@@ -22,21 +22,21 @@ def getWalletData():
         wallet_data = response.json()
 
         # Obtener las transacciones
-        transactions = wallet_data['txs']
+        transactions = wallet_data.get('txs', [])
 
-        address = wallet_data.get('addr' , 0) # Dirección
-        balance = wallet_data.get('final_balance', 0)  # Balance en satoshis
-        tx_count = wallet_data.get('n_tx', 0)  # Número de transacciones
-       
-        data = {
+        for transaction in transactions:
+            address = transaction.get('address', 0)  # Dirección
+            balance = transaction.get('final_balance', 0)  # Balance en satoshis
+            tx_count = transaction.get('n_tx', 0)  # Número de transacciones
+            
+            data = {
                 "address": address,
                 "balance": balance / 1e8,  # Convertir a BTC
                 "number_of_transactions": tx_count
             }
 
-        
-        
-        remainingTransationsToJSON.saveWalletDataToJSON(data)
+            # Guardar la información de la wallet
+            remainingTransationsToJSON.saveWalletDataToJSON(data)
        
 
     except requests.exceptions.RequestException as e:
