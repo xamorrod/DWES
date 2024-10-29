@@ -1,12 +1,12 @@
 from pathlib import Path
 import json
 
-# Esta función se encarga de guardar los datos de las wallets en un archivo JSON
+# Esta función se encarga de guardar los datos de transacciones en un archivo JSON
 
-def saveWalletDataToJSON(data):
+def saveTransactionDataToJSON(data):
 
     # Ruta en la que se va a almacenar
-    filename = "./src/data/wallets_data.json"
+    filename = "./src/data/transactions.json"
     file_path = Path(filename)
 
     try:
