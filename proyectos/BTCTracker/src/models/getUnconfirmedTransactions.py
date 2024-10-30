@@ -27,6 +27,8 @@ def getUnConfirmedTransaction():
 
         all_output_addresses = [] 
 
+
+        #Obtiene el índice y el valor de los dos elementos al mismo tiempo
         for idx, tx in enumerate(latest_transactions):
             # Obtener las direcciones de salida (outputs)
             output_addresses = []

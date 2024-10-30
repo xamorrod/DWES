@@ -7,7 +7,6 @@ from controllers import transactionDataToJSON
 def getDataFromTransacction(hash):
 
     url = "https://blockchain.info/rawtx/"
-   
 
     try:
 
@@ -24,7 +23,6 @@ def getDataFromTransacction(hash):
 
         # Crear un diccionario con los datos relevantes
         data = {
-            
         "transaction_hash": transaction_data.get("hash"),
         "date_time": date_time,
         "total_fee": transaction_data.get("fee", 0) / 1e8,  # en BTC
@@ -46,6 +44,5 @@ def getDataFromTransacction(hash):
         
         transactionDataToJSON.saveTransactionDataToJSON(data)
 
-        
     except requests.exceptions.RequestException as e:
         print(f"Error al obtener las transacciones: {e}")
