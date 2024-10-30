@@ -35,8 +35,6 @@ def getWalletData():
                 "number_of_transactions": tx_count
             }
 
-            # Guardar la información de la wallet
-            remainingTransationsToJSON.saveWalletDataToJSON(data)
        
 
     except requests.exceptions.RequestException as e:
