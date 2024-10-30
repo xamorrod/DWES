@@ -1,13 +1,12 @@
-import bannerApp
+from bannerApp import imprimirBanner
 # Implementamos el método que va a ser el menu de la app encargado de 
 # conectar el menu principal con las funciones de conexión a los datos
 
 def menuUtil():
     
     # Inicializamos las variables necesarias 
-    
     confirm = False
-    bannerApp.imprimirBanner()
+    imprimirBanner()
     print("Bienvenido a la aplicación BTC Tracker, orientada a rastrear datos de la BlockChain")
     
     while(not confirm):
