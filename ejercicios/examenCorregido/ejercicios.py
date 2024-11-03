@@ -61,11 +61,10 @@ cargar_lista("playlist.txt")
 crear_lista_aleatoria(3) 
 
 def guardar_lista(nomArchivo):
-    with open (nomArchivo ,"w") as fichero:
-            listArtis = dicCanciones.keys
-            listCanciones = dicCanciones.values
-            for elemento in dicCanciones: 
-                fichero.write(listArtis[elemento] , " - " , listCanciones[elemento])
+    with open(nomArchivo, "w") as fichero:
+        for titulo, artista in dicCanciones.items():
+            fichero.write(f"{titulo} - {artista}\n")
+
             
             
  
