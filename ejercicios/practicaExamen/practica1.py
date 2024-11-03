@@ -20,13 +20,14 @@ def ejerLista():
     for num in enterosList:
         if num % 2 != 0:
             nuevaList.append(num*3)
+            
 
     nuevaList.sort( reverse=True)
     print(nuevaList)
 
 
 def ejer3():
-    nomCiudades = ("México" , "Singapur" , "Guanajuato" , "Montevideo" , "Detroit")
+    nomCiudades = ("Ciudad Juárez" , "Singapur" , "Guanajuato" , "Montevideo" , "Detroit")
     dicCiudades = {}
     for ciudad in nomCiudades:
         dicCiudades[ciudad] = len(ciudad)
@@ -47,7 +48,6 @@ def ejer4():
                 listNum.append(num)
                 continue
             case 2:
-                media = 0
                 media = sum(media) / len(media)
                 print("La media es " , media)
                 continue

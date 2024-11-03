@@ -1,0 +1,23 @@
+[
+    {
+        "address": "bc1qjpstn6wh5jeqfc049az93j7zy3pze840840hzl",
+        "balance": 0.0,
+        "total_received": 0.01977042,
+        "total_sent": 0.01977042,
+        "number_of_transactions": 7
+    },
+    {
+        "address": "bc1qjpstn6wh5jeqfc049az93j7zy3pze840840hzl",
+        "balance": 0.0,
+        "total_received": 0.01977042,
+        "total_sent": 0.01977042,
+        "number_of_transactions": 7
+    },
+    {
+        "address": "bc1q0fm8dvvqr6jpfagtycjx3guknazta2qeul7luz",
+        "balance": 0.00757675,
+        "total_received": 0.00757675,
+        "total_sent": 0.00757675,
+        "number_of_transactions": 1
+    }
+]
