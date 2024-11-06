@@ -49,15 +49,13 @@ def agregar_cancion(listaDiccionarios ,nomCancion , nomArtista , nomGenero):
 
 def eliminar_cancion(listaDiccionarios , nomCancion ):
    #Proceso de búsqueda del nombre en cada diccionario
-   
-    for cancion in listaDiccionarios:
-        if buscar_cancion(listaDiccionarios , nomCancion):
-            listaDiccionarios.remove(cancion)
+    indice = buscar_cancion(listaDiccionarios , nomCancion)
+    if indice >= 0:
+            listaDiccionarios.pop(indice)
             print(f"Cancion {nomCancion} eliminada con éxito")
-            break
-        else:
-            print("La canción no existe por lo que no puede guardarse")
-        
+    else:
+        print("No se ha encontrado la canción buscada")
+    
     return listaDiccionarios
 
 
@@ -75,14 +73,14 @@ def guardar_cancion(nombreArchivo , listaCanciones):
 def buscar_cancion(listaDiccionario , nomCancion):
     #Buscamos entendiendo que la clave primaria es el nombre de la canción
     try:
-        for cancion in listaDiccionario:
+        for i , cancion in enumerate(listaDiccionario):
             nombre = cancion["nombre"]
             artista = cancion["artista"]
             genero = cancion["genero"]
             if nomCancion == nombre:
                 print(f"Los datos de la canción buscada son {nombre} , {artista} , {genero}")
-                return True
-        return False
+                return i
+        return -1
     except IOError as e:
         print("Ha habido un error con la búsqueda del fichero")
         
