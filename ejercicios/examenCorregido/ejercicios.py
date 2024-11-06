@@ -2,8 +2,76 @@ import random
 #Definimos el atributo global del diccionario de canciones
 dicCanciones = {}
 
+#Ahora tenemos una lista de diccionarios
+
+def cargar_listaDiccionarios(nombreArchivo):
+    listaDiccionarios = [] 
+    with open(nombreArchivo) as fichero:
+        
+        for elemento in fichero: 
+            nombre , artista, genero = elemento.strip().split(" - ")
+            cancion = { 
+                       "nombre" : nombre,
+                       "artista" : artista,
+                       "genero" : genero
+                       }
+            if len(cancion) == 3:
+                listaDiccionarios.append(cancion) 
+            else: 
+                print(f"La línea no está formateada correctamente {nombre}")
+                
+        print(listaDiccionarios) 
+    return listaDiccionarios
+   
 
 
+
+def agregar_cancion(listaDiccionarios ,nomCancion , nomArtista , nomGenero):
+    nuevaLista = []
+    
+    dicNuevo ={
+        "nombre" : nomCancion,
+        "artista" : nomArtista,
+        "genero" : nomGenero
+    } 
+    
+    listaDiccionarios.append(dicNuevo)
+    print(listaDiccionarios)
+    return listaDiccionarios
+
+
+
+def eliminar_cancion(listaDiccionarios , nomCancion , nomArtista , nomGenero):
+   #Proceso de búsqueda de las 3 ocurrencias en cada diccionario
+   
+    for cancion in listaDiccionarios:
+        nombre , artista, genero = cancion.items()
+        if nomCancion == cancion["nombre"] and nomArtista == cancion["artista"] and nomGenero == cancion["genero"]:
+            print(f"Cancion {nombre} eliminada con éxito")
+            listaDiccionarios.remove(cancion)
+        
+    return listaDiccionarios
+
+def guardar_cancion(nombreArchivo , listaCanciones):
+    with open(nombreArchivo ,"w")  as fichero:
+        for cancion in listaCanciones:
+            nombre = cancion["nombre"]
+            artista = cancion["artista"]
+            genero = cancion["genero"]
+            linea = (f"{nombre} - {artista} - {genero}\n")
+            fichero.write(linea)
+    return listaCanciones
+            
+
+
+prueba = cargar_listaDiccionarios("playlist.txt")
+pruebaAñadida = agregar_cancion(prueba , "a" ,"b", "c")    
+pruebaEliminada = eliminar_cancion(pruebaAñadida , "a" ,"b", "c")  
+guardar_cancion("playlist2.txt" ,pruebaEliminada)  
+print(pruebaEliminada)
+    
+    
+    
 def cargar_lista(nombreArchivo):
     with open(nombreArchivo ,"r") as fichero:
         for elemento in fichero:
@@ -57,14 +125,13 @@ def crear_lista_aleatoria(n):
     print(listRandom)
     return  listRandom
 
-cargar_lista("playlist.txt")
-crear_lista_aleatoria(3) 
+
+#Corregido a posteriori
 
 def guardar_lista(nomArchivo):
     with open(nomArchivo, "w") as fichero:
         for titulo, artista in dicCanciones.items():
             fichero.write(f"{titulo} - {artista}\n")
 
+        
             
-            
- 
