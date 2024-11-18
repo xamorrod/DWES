@@ -3,5 +3,70 @@
         "nombre": "Aspiradora",
         "precio": 29.99,
         "cantidad": 10
+    },
+    {
+        "nombre": "Televisor",
+        "precio": 499.99,
+        "cantidad": 5
+    },
+    {
+        "nombre": "Microondas",
+        "precio": 89.99,
+        "cantidad": 20
+    },
+    {
+        "nombre": "Laptop",
+        "precio": 799.99,
+        "cantidad": 7
+    },
+    {
+        "nombre": "Cafetera",
+        "precio": 45.99,
+        "cantidad": 15
+    },
+    {
+        "nombre": "Refrigerador",
+        "precio": 1200.00,
+        "cantidad": 3
+    },
+    {
+        "nombre": "Batidora",
+        "precio": 25.99,
+        "cantidad": 12
+    },
+    {
+        "nombre": "Teléfono móvil",
+        "precio": 699.99,
+        "cantidad": 8
+    },
+    {
+        "nombre": "Consola de videojuegos",
+        "precio": 399.99,
+        "cantidad": 6
+    },
+    {
+        "nombre": "Altavoces Bluetooth",
+        "precio": 59.99,
+        "cantidad": 14
+    },
+    {
+        "nombre": "Ventilador",
+        "precio": 34.99,
+        "cantidad": 9
+    },
+    {
+        "nombre": "Monitor",
+        "precio": 199.99,
+        "cantidad": 11
+    },
+    {
+        "nombre": "Teclado",
+        "precio": 49.99,
+        "cantidad": 25
+    },
+    {
+        "nombre": "Ratón inalámbrico",
+        "precio": 29.99,
+        "cantidad": 30
     }
 ]
