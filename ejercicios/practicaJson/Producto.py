@@ -21,5 +21,3 @@ class Producto:
     def modificar_informacion(self, **kwargs):
         for clave, valor in kwargs.items():
             setattr(self, clave, valor)
-
-    

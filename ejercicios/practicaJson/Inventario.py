@@ -1,5 +1,7 @@
 import json
 from Producto import Producto
+
+
 class Inventario:
 
     def __init__(self):
@@ -25,19 +27,31 @@ class Inventario:
     def cargar_inventario(self, nombreFichero):
         # Cargamos los datos de un JSON y los convertimos en objetos para poder acceder a ellos
 
-        with open(nombreFichero , "r") as fichero:
+        with open(nombreFichero, "r") as fichero:
             productos = json.load(fichero)
 
-            productoMayor  = ([producto["nombre"] for producto in productos if producto["precio"] > 10])
+            productoMayor = [
+                producto["nombre"] for producto in productos if producto["precio"] > 10
+            ]
+            listPeroducto = [producto.__dict__ for producto in productos]
+            # No modifica la lista original
+            sorted(listPeroducto, key=lambda producto: (producto.cantidad))
+            # Modifica la lista original
+            listPeroducto.sort(key=lambda producto: (producto.cantidad))
+
             print(productoMayor)
             for producto in productos:
-                productoN = Producto(producto["nombre"] , producto["precio"], producto["cantidad"])
+                productoN = Producto(
+                    producto["nombre"], producto["precio"], producto["cantidad"]
+                )
                 self.agregar_producto(productoN)
 
     def ordenar_productos(self):
         # Ordenamos cantidad mayor a menor y cantidad de menor a mayor
 
-        self.productos = sorted(self.productos , key= lambda producto :(-producto.cantidad , producto.precio))
+        self.productos = sorted(
+            self.productos, key=lambda producto: (-producto.cantidad, producto.precio)
+        )
 
         for producto in self.productos:
             producto.mostrar_informacion()
