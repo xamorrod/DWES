@@ -3,6 +3,7 @@ venv/
 env/
 *.pyc
 __pycache__/
+/db.sqlite3
 
 # Archivos de configuración de entorno
 *.env
