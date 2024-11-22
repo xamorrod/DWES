@@ -4,4 +4,8 @@ from django.shortcuts import render
 
 
 def principal(request):
-    return render(request, "principal.html")
+    return render(request, "blog/principal.html")
+
+
+def bienvenida(request):
+    return render(request, "blog/bienvenida.html")
