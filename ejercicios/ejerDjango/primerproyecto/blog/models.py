@@ -8,4 +8,5 @@ class Post(models.Model):
     cuerpo = models.TextField()
 
     def __str__(self):
-        return self.titulo
+
+        return str(self.pk) + " " + self.titulo
