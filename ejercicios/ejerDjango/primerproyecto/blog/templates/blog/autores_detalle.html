@@ -6,8 +6,12 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Documentos detalle</h1>
-    <h1>Post {{post.titulo}}</h1>
-    
+    <h1>Los autores de los post son:</h1>
+    <h1>Posts de {{ posts_autor  }}</h1>
+    <ul>
+      {% for post in posts_autor %}
+      <li>{{ post}} </li>
+      {% endfor %}
+    </ul>
   </body>
 </html>

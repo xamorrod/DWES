@@ -10,7 +10,7 @@ class Post(models.Model):
     autor = models.CharField(max_length=60)
     cuerpo = models.TextField()
     fechaPublicado = models.DateField()
-    email = models.EmailField(unique=True, max_length=200)
+    #email = models.EmailField(unique=True, max_length=200)
 
     # Crear algún procedimiento en relación al modelo
     def __str__(self):

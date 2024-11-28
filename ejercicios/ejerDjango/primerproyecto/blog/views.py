@@ -23,4 +23,15 @@ def filtrado(request):
 
 def detalle(request, pk):
     post = get_object_or_404(Post, pk=pk)
+    # post = Post.objects.get()
     return render(request, "blog/detalle.html", {"post": post})
+
+
+def autores(request):
+    autores = Post.objects.values_list("autor", flat=True).distinct()
+    return render(request, "blog/autores.html", {"autores": autores})
+
+
+def autores_detalle(request, autor):
+    posts_autor = Post.objects.filter(autor=autor)
+    return render(request, "blog/autores_detalle.html", {"posts_autor": posts_autor})
