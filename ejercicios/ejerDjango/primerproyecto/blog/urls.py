@@ -6,6 +6,7 @@ urlpatterns = [
     path("bienvenida", views.bienvenida, name="bienvenida"),
     path("filtrado", views.filtrado, name="filtrado"),
     path("detalle/<int:pk>", views.detalle, name="detalle"),
+    #Url para obtener los autores y sus datos
     path("autores", views.autores, name="autores"),
-    path("autores/<str:autor>", views.autores_detalle, name="detalle_autor")
+    path("autores/<int:pk>", views.autores_detalle, name="detalle_autor")
 ]

@@ -1,17 +1,28 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="{%static "css/autor_detalle.css" %}">
   </head>
   <body>
-    <h1>Los autores de los post son:</h1>
-    <h1>Posts de {{ posts_autor  }}</h1>
-    <ul>
-      {% for post in posts_autor %}
-      <li>{{ post}} </li>
-      {% endfor %}
-    </ul>
+    <div class="datos_autor">
+      <h1>Los autores de los post son:</h1>
+      <h1>Posts de {{ autor.nombre }} {{autor.apellidos}}</h1>
+      <h2>Email: {{ autor.email }}</h2>
+      <h2>DNI: {{ autor.dni }}</h2>
+      <h2>Bios: {{ autor.bios }}</h2>
+    </div>
+    <div>
+      <h2>Los post escritos por el autor son:</h2>
+      <ul>
+        {% for post in posts_autor %}
+
+        <li>{{ post}}</li>
+        {% endfor %}
+      </ul>
+    </div>
   </body>
 </html>

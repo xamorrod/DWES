@@ -1,16 +1,20 @@
+{% load static%}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="{%static "css/blog.css" %}">
   </head>
   <body>
     <h1>Los autores de los post son:</h1>
     <ul>
-        {% for autor in autores %}
-        <li><a href="{% url 'detalle_autor' autor=autor %}">{{ autor }}</a></li>
-        {% endfor %}
-      </ul>
+      {% for autor in autores %}
+      <li>
+        <a href="{% url 'detalle_autor' pk=autor.pk %}">{{ autor.nombre }}</a>
+      </li>
+      {% endfor %}
+    </ul>
   </body>
 </html>
