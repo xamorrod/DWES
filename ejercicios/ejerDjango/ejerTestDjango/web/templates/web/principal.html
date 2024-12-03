@@ -1,0 +1,10 @@
+{% extends "web/base.html" %}
+{% block titulo %} Entradas de artículos {% endblock%}
+
+{% block contenido %}
+    <ul>
+      {% for articulo in articulos%}
+      <li><a href="{% url 'detalle_articulo' pk=articulo.pk %}"> {{articulo.titulo}} {{articulo.autor}}</a> </li>
+      {% endfor %}
+    </ul>
+{% endblock%}
