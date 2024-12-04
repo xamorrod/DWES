@@ -12,7 +12,7 @@ class Autor(models.Model):
     # Blank true es para que sea opcional
     bio = models.TextField(blank=True, verbose_name="Biografía")
 
-    #Clase para poner un poco más bonito 
+    # Clase para poner un poco más bonito
     class Meta:
         verbose_name = "Autor"
         verbose_name_plural = "Autores"

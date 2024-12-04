@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Autor
+from .forms import PostForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 
@@ -27,19 +29,28 @@ def detalle(request, pk):
     return render(request, "blog/detalle.html", {"post": post})
 
 
-#Vista general para obtener autores
+# Vista general para obtener autores
 def autores(request):
     autores = Autor.objects.all().distinct()
     return render(request, "blog/autores.html", {"autores": autores})
 
 
-#Vista con información del autor en concreto pasada su PK
+# Vista con información del autor en concreto pasada su PK
 def autores_detalle(request, pk):
     autor = get_object_or_404(Autor, pk=pk)
-    posts_autor = Post.objects.filter(pk = autor.pk)
-    
+    posts_autor = Post.objects.filter(pk=autor.pk)
+
     return render(
         request,
         "blog/autores_detalle.html",
         {"autor": autor, "posts_autor": posts_autor},
     )
+
+
+def post_new(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        return HttpResponseRedirect("/thanks")
+    else:
+        form = PostForm()
+    return render(request , "blog/new.html" , {"form": form})
