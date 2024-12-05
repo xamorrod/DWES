@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Autor
-from .forms import PostForm
+from .forms import PostForm , PostEdit
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -53,4 +53,40 @@ def post_new(request):
         return HttpResponseRedirect("/thanks")
     else:
         form = PostForm()
-    return render(request , "blog/new.html" , {"form": form})
+    return render(request, "blog/abraham.html", {"form": form})
+
+
+def post_new2(request):
+    if request.method == "POST":
+        form = PostForm(request.POST)
+        if form.is_valid():
+            ftitulo = form.cleaned_data["titulo"]
+            fcuerpo = form.cleaned_data["cuerpo"]
+            fechaPublicado = form.cleaned_data["fechaPublicado"]
+        autor = Autor.objects.get(id=1)
+        Post.objects.create(
+            titulo=ftitulo, autor=autor, cuerpo=fcuerpo, fechaPublicado=fechaPublicado
+        )
+        return render(request, "blog/post_added.html")
+
+    else:
+        form = PostForm()
+    return render(request, "blog/abraham.html", {"form": form})
+
+
+def post_edit(request, pk):
+    if request.method == "POST":
+        form = PostEdit(request.POST)
+        if form.is_valid():
+            ftitulo = form.cleaned_data["titulo"]
+            fcuerpo = form.cleaned_data["cuerpo"]
+            fechaPublicado = form.cleaned_data["fechaPublicado"]
+        autor = Autor.objects.get(pk= 1)
+        Post.objects.filter(pk=pk).update(
+            titulo=ftitulo, autor=autor, cuerpo=fcuerpo, fechaPublicado=fechaPublicado
+        )
+        return render(request, "blog/post_added.html")
+
+    else:
+        form = PostEdit()
+    return render(request, "blog/post_edit.html", {"form": form})

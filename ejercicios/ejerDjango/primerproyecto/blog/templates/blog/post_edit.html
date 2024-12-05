@@ -1,0 +1,11 @@
+{% extends "blog/base.html" %} {% block titulo %}Entradas de blog {%endblock%}
+{%block contenido%}
+
+<h1>Introduce los datos para editar el post</h1>
+
+<form action="" method="post">
+  {% csrf_token %} {{form}}
+  <input type="submit" value="Editar" />
+</form>
+
+{%endblock%}

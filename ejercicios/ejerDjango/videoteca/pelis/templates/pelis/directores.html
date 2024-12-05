@@ -1,0 +1,15 @@
+{% extends "pelis/base.html" %}
+
+{% block contenido %}
+
+<h1>Directores </h1>
+<ul>
+{% for director in directores%}
+
+<li>{{director.nopmbre}}</li>
+{% endfor %}
+</ul>
+
+
+
+{% endblock %}
